@@ -81,8 +81,8 @@ xtask/                  dev tools: fetch, detect, crop, check
 ## Credits & disclaimer
 
 All characters and sprites are © their respective owners (Nintendo, Capcom, Sega, Konami,
-Square Enix, SNK, Hudson/Konami, Shiny Entertainment, …). Sprite rips come from the communities of
-[Super Mario Wiki](https://www.mariowiki.com) and various [Fandom](https://www.fandom.com) game wikis
+Square Enix, SNK, Hudson/Konami, …). Sprite rips come from the communities of
+[Super Mario Wiki](https://www.mariowiki.com), [WiKirby](https://wikirby.com) and various [Fandom](https://www.fandom.com) game wikis
 (and, for manually added sheets, [The Spriters Resource](https://www.spriters-resource.com)); each
 entry's `source` in the manifest links to the original file page. This is a non-commercial fan project with no affiliation to any of these companies.
 The code is MIT-licensed (see `LICENSE`; it does not cover the sprites).
