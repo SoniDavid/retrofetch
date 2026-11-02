@@ -1,0 +1,524 @@
+# retrofetch sprite roster
+#
+# Each [[sprite]] becomes a character in the binary once sprites/png/<id>.png exists.
+#
+# Fields
+#   id, name, game, company, console, year   metadata shown by --list and the caption
+#   console     snes | genesis | arcade | neogeo | pce
+#   source      URL of the sheet you used (credit; Spriters Resource sheet page)
+#   sheet       file name inside sheets/ (gitignored). Default convention: <id>.png
+#   crop        [x, y, w, h] box on the sheet — get it from `cargo xtask detect sheets/<file>`
+#   bg          colour(s) keyed to transparent: "#rrggbb" or ["#..", "#.."]
+#               (default: the sheet's top-left pixel)
+#   downscale   integer shrink factor: sprites taller than 64px, or images stored at 2x/3x
+#   url         direct image URL; `cargo xtask fetch` downloads it to sheets/<sheet>.
+#               With a url and no crop, the whole image is the sprite.
+#   flood       true = only clear background connected to the edges (keeps white eyes etc.)
+#
+# Workflow (direct url):  `cargo xtask fetch && cargo xtask crop`
+# Workflow (manual): download sheet in a browser -> save as sheets/<id>.png -> `cargo xtask detect`
+#           -> fill `crop` -> `cargo xtask crop --id <id>` -> `cargo run -- --no-fetch <id>`
+
+# ---------------------------------------------------------------- Nintendo
+
+[[sprite]]
+id      = "mario"
+name    = "Mario"
+game    = "Super Mario World"
+company = "Nintendo"
+console = "snes"
+year    = 1990
+source  = "https://www.mariowiki.com/File:Mario_SMW.gif"
+url     = "https://mario.wiki.gallery/images/1/1a/Mario_SMW.gif"
+sheet   = "mario.gif"
+
+[[sprite]]
+id      = "luigi"
+name    = "Luigi"
+game    = "Super Mario World"
+company = "Nintendo"
+console = "snes"
+year    = 1990
+source  = "https://www.mariowiki.com/File:Luigi_SMAS_SMW.png"
+url     = "https://mario.wiki.gallery/images/2/23/Luigi_SMAS_SMW.png"
+sheet   = "luigi.png"
+
+[[sprite]]
+id      = "yoshi"
+name    = "Yoshi"
+game    = "Super Mario World"
+company = "Nintendo"
+console = "snes"
+year    = 1990
+# source = 
+sheet   = "yoshi.png"
+# crop  = [x, y, w, h]
+
+[[sprite]]
+id      = "link"
+name    = "Link"
+game    = "The Legend of Zelda: A Link to the Past"
+company = "Nintendo"
+console = "snes"
+year    = 1991
+source  = "https://zelda.fandom.com/wiki/File:ALttP_Link_Sprite.png"
+url     = "https://static.wikia.nocookie.net/zelda_gamepedia_en/images/3/31/ALttP_Link_Sprite.png/revision/latest?cb=20130224171301&format=original"
+sheet   = "link.png"
+downscale = 2
+
+[[sprite]]
+id      = "samus"
+name    = "Samus Aran"
+game    = "Super Metroid"
+company = "Nintendo"
+console = "snes"
+year    = 1994
+source  = "https://metroid.fandom.com/wiki/File:Samus_Super_Metroid.png"
+url     = "https://static.wikia.nocookie.net/metroid/images/f/f5/Samus_Super_Metroid.png/revision/latest?cb=20070714201934&format=original"
+sheet   = "samus.png"
+bg      = "#ffffff"
+flood   = true
+
+[[sprite]]
+id      = "kirby"
+name    = "Kirby"
+game    = "Kirby Super Star"
+company = "Nintendo"
+console = "snes"
+year    = 1996
+source  = "https://kirby.fandom.com/wiki/File:KSS_Kirby_sprite.png"
+url     = "https://static.wikia.nocookie.net/kirby/images/f/f3/KSS_Kirby_sprite.png/revision/latest?cb=20121115044752&path-prefix=en&format=original"
+sheet   = "kirby.png"
+
+[[sprite]]
+id      = "meta-knight"
+name    = "Meta Knight"
+game    = "Kirby Super Star"
+company = "Nintendo"
+console = "snes"
+year    = 1996
+# source = 
+sheet   = "meta-knight.png"
+# crop  = [x, y, w, h]
+
+[[sprite]]
+id      = "donkey-kong"
+name    = "Donkey Kong"
+game    = "Donkey Kong Country"
+company = "Nintendo"
+console = "snes"
+year    = 1994
+source  = "https://www.mariowiki.com/File:Donkey_Kong_DKC_idle.gif"
+url     = "https://mario.wiki.gallery/images/c/ca/Donkey_Kong_DKC_idle.gif"
+sheet   = "donkey-kong.gif"
+
+[[sprite]]
+id      = "diddy-kong"
+name    = "Diddy Kong"
+game    = "Donkey Kong Country"
+company = "Nintendo"
+console = "snes"
+year    = 1994
+# source = 
+sheet   = "diddy-kong.png"
+# crop  = [x, y, w, h]
+
+[[sprite]]
+id      = "ness"
+name    = "Ness"
+game    = "EarthBound"
+company = "Nintendo"
+console = "snes"
+year    = 1994
+source  = "https://earthbound.fandom.com/wiki/File:Ness.png"
+url     = "https://static.wikia.nocookie.net/earthbound/images/d/d5/Ness.png/revision/latest?cb=20241214121449&format=original"
+sheet   = "ness.png"
+downscale = 2
+
+# ---------------------------------------------------------------- Square
+
+[[sprite]]
+id      = "geno"
+name    = "Geno"
+game    = "Super Mario RPG"
+company = "Square"
+console = "snes"
+year    = 1996
+source  = "https://www.mariowiki.com/File:Geno_Sprite_-_Super_Mario_RPG.png"
+url     = "https://mario.wiki.gallery/images/9/94/Geno_Sprite_-_Super_Mario_RPG.png"
+sheet   = "geno.png"
+
+# ---------------------------------------------------------------- Capcom
+
+[[sprite]]
+id      = "megaman-x"
+name    = "Mega Man X"
+game    = "Mega Man X"
+company = "Capcom"
+console = "snes"
+year    = 1993
+source  = "https://www.spriters-resource.com/snes/mmx/sheet/1225/"
+url     = "https://static.wikia.nocookie.net/megaman/images/c/ca/X1-3_X_Idle.gif/revision/latest?cb=20220825072257&format=original"
+sheet   = "megaman-x.gif"
+
+[[sprite]]
+id      = "zero"
+name    = "Zero"
+game    = "Mega Man X"
+company = "Capcom"
+console = "snes"
+year    = 1993
+source  = "https://megaman.fandom.com/wiki/File:Zero_x1_sprite.gif"
+url     = "https://static.wikia.nocookie.net/megaman/images/e/ee/Zero_x1_sprite.gif/revision/latest?cb=20220825053305&format=original"
+sheet   = "zero.gif"
+
+[[sprite]]
+id      = "arthur"
+name    = "Arthur"
+game    = "Super Ghouls'n Ghosts"
+company = "Capcom"
+console = "snes"
+year    = 1991
+# source = 
+sheet   = "arthur.png"
+# crop  = [x, y, w, h]
+
+[[sprite]]
+id      = "ryu"
+name    = "Ryu"
+game    = "Pocket Fighter"
+company = "Capcom"
+console = "arcade"
+year    = 1997
+# source = 
+sheet   = "ryu.png"
+# crop  = [x, y, w, h]
+
+[[sprite]]
+id      = "ken"
+name    = "Ken"
+game    = "Pocket Fighter"
+company = "Capcom"
+console = "arcade"
+year    = 1997
+# source = 
+sheet   = "ken.png"
+# crop  = [x, y, w, h]
+
+[[sprite]]
+id      = "chun-li"
+name    = "Chun-Li"
+game    = "Pocket Fighter"
+company = "Capcom"
+console = "arcade"
+year    = 1997
+# source = 
+sheet   = "chun-li.png"
+# crop  = [x, y, w, h]
+
+[[sprite]]
+id      = "zangief"
+name    = "Zangief"
+game    = "Pocket Fighter"
+company = "Capcom"
+console = "arcade"
+year    = 1997
+# source = 
+sheet   = "zangief.png"
+# crop  = [x, y, w, h]
+
+[[sprite]]
+id      = "morrigan"
+name    = "Morrigan"
+game    = "Pocket Fighter"
+company = "Capcom"
+console = "arcade"
+year    = 1997
+# source = 
+sheet   = "morrigan.png"
+# crop  = [x, y, w, h]
+
+[[sprite]]
+id      = "strider-hiryu"
+name    = "Strider Hiryu"
+game    = "Strider"
+company = "Capcom"
+console = "genesis"
+year    = 1990
+# source = 
+sheet   = "strider-hiryu.png"
+# crop  = [x, y, w, h]
+
+# ---------------------------------------------------------------- Sega
+
+[[sprite]]
+id      = "sonic"
+name    = "Sonic"
+game    = "Sonic 3 & Knuckles"
+company = "Sega"
+console = "genesis"
+year    = 1994
+source  = "https://sonic.fandom.com/wiki/File:SonictheHedgehog3_SonicSprite.png"
+url     = "https://static.wikia.nocookie.net/sonic/images/f/fa/SonictheHedgehog3_SonicSprite.png/revision/latest?cb=20181104014347&format=original"
+sheet   = "sonic.png"
+
+[[sprite]]
+id      = "tails"
+name    = "Tails"
+game    = "Sonic the Hedgehog 2"
+company = "Sega"
+console = "genesis"
+year    = 1992
+source  = "https://sonic.fandom.com/wiki/File:Sonic2_Sprite_Character_Tails_Idle1.png"
+url     = "https://static.wikia.nocookie.net/sonic/images/5/5c/Sonic2_Sprite_Character_Tails_Idle1.png/revision/latest?cb=20250211174258&format=original"
+sheet   = "tails.png"
+
+[[sprite]]
+id      = "knuckles"
+name    = "Knuckles"
+game    = "Sonic 3 & Knuckles"
+company = "Sega"
+console = "genesis"
+year    = 1994
+# source = 
+sheet   = "knuckles.png"
+# crop  = [x, y, w, h]
+
+[[sprite]]
+id      = "robotnik"
+name    = "Dr. Robotnik"
+game    = "Sonic 3 & Knuckles"
+company = "Sega"
+console = "genesis"
+year    = 1994
+# source = 
+sheet   = "robotnik.png"
+# crop  = [x, y, w, h]
+
+[[sprite]]
+id      = "ristar"
+name    = "Ristar"
+game    = "Ristar"
+company = "Sega"
+console = "genesis"
+year    = 1995
+# source = 
+sheet   = "ristar.png"
+# crop  = [x, y, w, h]
+
+[[sprite]]
+id      = "axel"
+name    = "Axel Stone"
+game    = "Streets of Rage 2"
+company = "Sega"
+console = "genesis"
+year    = 1992
+# source = 
+sheet   = "axel.png"
+# crop  = [x, y, w, h]
+
+[[sprite]]
+id      = "blaze"
+name    = "Blaze Fielding"
+game    = "Streets of Rage 2"
+company = "Sega"
+console = "genesis"
+year    = 1992
+# source = 
+sheet   = "blaze.png"
+# crop  = [x, y, w, h]
+
+[[sprite]]
+id      = "vectorman"
+name    = "Vectorman"
+game    = "Vectorman"
+company = "Sega"
+console = "genesis"
+year    = 1995
+# source = 
+sheet   = "vectorman.png"
+# crop  = [x, y, w, h]
+
+[[sprite]]
+id      = "ecco"
+name    = "Ecco"
+game    = "Ecco the Dolphin"
+company = "Sega"
+console = "genesis"
+year    = 1992
+# source = 
+sheet   = "ecco.png"
+# crop  = [x, y, w, h]
+
+# ---------------------------------------------------------------- Konami
+
+[[sprite]]
+id      = "simon-belmont"
+name    = "Simon Belmont"
+game    = "Super Castlevania IV"
+company = "Konami"
+console = "snes"
+year    = 1991
+# source = 
+sheet   = "simon-belmont.png"
+# crop  = [x, y, w, h]
+
+[[sprite]]
+id      = "leonardo"
+name    = "Leonardo"
+game    = "TMNT: Turtles in Time"
+company = "Konami"
+console = "snes"
+year    = 1992
+# source = 
+sheet   = "leonardo.png"
+# crop  = [x, y, w, h]
+
+[[sprite]]
+id      = "goemon"
+name    = "Goemon"
+game    = "The Legend of the Mystical Ninja"
+company = "Konami"
+console = "snes"
+year    = 1991
+# source = 
+sheet   = "goemon.png"
+# crop  = [x, y, w, h]
+
+[[sprite]]
+id      = "sparkster"
+name    = "Sparkster"
+game    = "Rocket Knight Adventures"
+company = "Konami"
+console = "genesis"
+year    = 1993
+# source = 
+sheet   = "sparkster.png"
+# crop  = [x, y, w, h]
+
+# ---------------------------------------------------------------- Square
+
+[[sprite]]
+id      = "cecil"
+name    = "Cecil"
+game    = "Final Fantasy IV"
+company = "Square"
+console = "snes"
+year    = 1991
+# source = 
+sheet   = "cecil.png"
+# crop  = [x, y, w, h]
+
+[[sprite]]
+id      = "terra"
+name    = "Terra"
+game    = "Final Fantasy VI"
+company = "Square"
+console = "snes"
+year    = 1994
+source  = "https://finalfantasy.fandom.com/wiki/File:FFVI_Terra_Branford_Sprite.png"
+url     = "https://static.wikia.nocookie.net/finalfantasy/images/1/16/FFVI_Terra_Branford_Sprite.png/revision/latest?cb=20140711192304&format=original"
+sheet   = "terra.png"
+
+[[sprite]]
+id      = "crono"
+name    = "Crono"
+game    = "Chrono Trigger"
+company = "Square"
+console = "snes"
+year    = 1995
+# source = 
+sheet   = "crono.png"
+# crop  = [x, y, w, h]
+
+[[sprite]]
+id      = "frog"
+name    = "Frog"
+game    = "Chrono Trigger"
+company = "Square"
+console = "snes"
+year    = 1995
+# source = 
+sheet   = "frog.png"
+# crop  = [x, y, w, h]
+
+[[sprite]]
+id      = "randi"
+name    = "Randi"
+game    = "Secret of Mana"
+company = "Square"
+console = "snes"
+year    = 1993
+source  = "https://mana.fandom.com/wiki/File:Randi_SoM.gif"
+url     = "https://static.wikia.nocookie.net/mana/images/7/71/Randi_SoM.gif/revision/latest?cb=20120229215855&format=original"
+sheet   = "randi.gif"
+
+# ---------------------------------------------------------------- SNK
+
+[[sprite]]
+id      = "terry-bogard"
+name    = "Terry Bogard"
+game    = "Fatal Fury 2"
+company = "SNK"
+console = "neogeo"
+year    = 1992
+# source = 
+sheet   = "terry-bogard.png"
+# crop  = [x, y, w, h]
+
+[[sprite]]
+id      = "mai-shiranui"
+name    = "Mai Shiranui"
+game    = "Fatal Fury 2"
+company = "SNK"
+console = "neogeo"
+year    = 1992
+# source = 
+sheet   = "mai-shiranui.png"
+# crop  = [x, y, w, h]
+
+[[sprite]]
+id      = "haohmaru"
+name    = "Haohmaru"
+game    = "Samurai Shodown"
+company = "SNK"
+console = "neogeo"
+year    = 1993
+# source = 
+sheet   = "haohmaru.png"
+# crop  = [x, y, w, h]
+
+[[sprite]]
+id      = "marco"
+name    = "Marco Rossi"
+game    = "Metal Slug"
+company = "SNK"
+console = "neogeo"
+year    = 1996
+# source = 
+sheet   = "marco.png"
+# crop  = [x, y, w, h]
+
+# ---------------------------------------------------------------- Hudson
+
+[[sprite]]
+id      = "bomberman"
+name    = "Bomberman"
+game    = "Super Bomberman 2"
+company = "Hudson"
+console = "snes"
+year    = 1994
+source  = "https://bomberman.fandom.com/wiki/File:Superbomberman2sprite.png"
+url     = "https://static.wikia.nocookie.net/bomberman/images/6/6d/Superbomberman2sprite.png/revision/latest?cb=20170712123028&format=original"
+sheet   = "bomberman.png"
+
+[[sprite]]
+id      = "bonk"
+name    = "Bonk"
+game    = "Bonk's Adventure"
+company = "Hudson"
+console = "pce"
+year    = 1989
+# source = 
+sheet   = "bonk.png"
+# crop  = [x, y, w, h]

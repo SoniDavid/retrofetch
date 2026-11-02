@@ -1,0 +1,17 @@
+[package]
+name = "retrofetch"
+version = "0.1.0"
+description = "fastfetch with a random 16-bit era video game sprite"
+edition.workspace = true
+license.workspace = true
+build = "build.rs"
+
+[dependencies]
+anyhow.workspace = true
+clap.workspace = true
+image.workspace = true
+fastrand = "2.5"
+
+[build-dependencies]
+serde.workspace = true
+toml.workspace = true

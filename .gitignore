@@ -1,0 +1,4 @@
+/target
+/sheets/*
+!/sheets/.gitkeep
+*.annotated.png
