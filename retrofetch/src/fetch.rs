@@ -67,6 +67,9 @@ pub fn run(logo: &[String], config: Option<&Path>, extra_args: &[String]) -> Res
         .args(["--file-raw", "-"])
         .args(["--logo-padding-top", &pad_top.to_string()])
         .args(["--logo-padding-left", "2", "--logo-padding-right", "3"])
+        // fastfetch >= 2.6x no longer disables line wrap by default; a wrapped
+        // long value would spill onto the next row and draw over the sprite.
+        .args(["--disable-linewrap", "true"])
         .args(extra_args)
         .stdin(Stdio::piped())
         .spawn()
